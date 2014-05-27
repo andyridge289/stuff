@@ -4,22 +4,11 @@ public class Medium {
 	
 	public static void main(String[] args) {
 		Medium m = new Medium();
-//		m.inPlaceSwap(1, 2);
-		
-		int[][] grid = {
-			{ 0, 1, 0 },
-			{ 1, 0, 1 },
-			{ 1, 0, 0 }
-		};
-		System.out.println(m.naiveTicTacToe(grid));
+		m.inPlaceSwap(1, 2);
 	}
 	
 	public Medium() {
 		
-	}
-	
-	int naiveTicTacToe(int[][] grid) {
-		// Either it's a row, column, or one of the two diagonals
 	}
 	
 	void inPlaceSwap(int a, int b) {

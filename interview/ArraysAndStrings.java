@@ -4,6 +4,7 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 public class ArraysAndStrings {
 	
@@ -13,6 +14,56 @@ public class ArraysAndStrings {
 //		aas.permuations();
 //		aas.compress();
 		aas.rotate();
+	}
+	
+	
+	public static void quicksort(int[] things) {
+		quicksort(things,  0, things.length - 1);
+	}
+	
+	private static void quicksort(int[] a, int lo, int hi) {
+		if(hi <= lo) 
+			return;
+		
+		int p = partition(a, lo, hi);
+		quicksort(a, lo, p - 1);
+		quicksort(a, p + 1, hi);
+	}
+	
+	private static int partition(int[] a, int lo, int hi) {
+		int i = lo;
+		int j = hi;
+		while(true) {
+			while(a[++i] < a[lo]) {
+				if(i == hi)
+					break;
+			}
+			
+			while(a[lo] < a[--j]) {
+				if(j == lo)
+					break;
+			}
+			
+			if(i >= j)
+				break;
+			
+			exch(a, i, j);
+		}
+		
+		exch(a, lo, j); // Puts the low thing in the middle I guess
+		return j;
+	}
+	
+	private static void exch(int[] things, int a, int b) {
+		if(b > a) {
+			b = b - a;
+			a = a + b;
+			b = a - b;
+		} else {
+			b = b - a;
+			a = a + b;
+			b = a - b;
+		}
 	}
 	
 	void rotate() {
